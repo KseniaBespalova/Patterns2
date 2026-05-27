@@ -16,6 +16,11 @@ import static ru.netology.testmode.data.DataGenerator.getRandomPassword;
 
 class AuthTest {
 
+    @BeforeEach
+    void setup() {
+        open("http://localhost:9999");
+    }
+
     @BeforeAll
     static void setUpAll() {
         // Добавляем листенер в тестовый класс перед выполнением всех тестов
@@ -26,11 +31,6 @@ class AuthTest {
     static void tearDownAll() {
         // Удаляем листенер после выполнения всех тестов
         SelenideLogger.removeListener("allure");
-    }
-
-    @BeforeEach
-    void setup() {
-        open("http://localhost:9999");
     }
 
     @Test
